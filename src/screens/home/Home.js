@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter, Redirect } from "react-router-dom";
 import "./Home.css";
 import Post from "../post/Post";
-import Header from "../header/Header";
+import Header from "../../common/header/Header";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 
