@@ -9,6 +9,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Popover from "@material-ui/core/Popover";
 import MenuItem from "@material-ui/core/MenuItem";
+import ProfilePic from "../../assets/profilePic.png";
 
 const classes = (theme) => ({
   searchContainer: {
@@ -90,7 +91,7 @@ class Header extends Component {
               <Avatar
                 alt="Profile Picture"
                 variant="circular"
-                src="profile_pic_dummy.jpg"
+                src={ProfilePic}
                 className={classes.avatar}
               />
             </IconButton>
@@ -100,14 +101,8 @@ class Header extends Component {
               open={Boolean(this.state.popoverAnchor)}
               anchorEl={this.state.popoverAnchor}
               onClose={this.handlePopoverClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
+              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+              transformOrigin={{ vertical: "top", horizontal: "left" }}
             >
               <div className="popover-menu">
                 {location.pathname === "/home" && (

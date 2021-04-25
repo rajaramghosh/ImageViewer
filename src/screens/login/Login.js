@@ -9,7 +9,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import FormHelperText from "@material-ui/core/FormHelperText";
 
-import Header from "../header/Header";
+import Header from "../../common/header/Header";
 import "./Login.css";
 
 const styles = {
@@ -56,7 +56,7 @@ class Login extends Component {
       sessionStorage.setItem("username", "admin");
       sessionStorage.setItem(
         "access-token",
-        "IGQVJYN0tKM19ScjdabGt4NFpyQ0xLaGtxU0dPbFdQc281NUI1S1E3bmpWMzAwSFlBaUEwVlpra2RRdFFqOFpsei0xQzJYYWt3ZATJIWk9Od3VXUE5WWHB6eXJ2dS05QjRXcXV6TWk3cDgxV0huVzJYNF9RZAGFuNENzNUpF"
+        "IGQVJXa1lpOVRNbTZANYlJfYXpRYmRkU1ktUGtzdzhqNHNRWXhMSWxoS2RpWkVWUHZAiX3p3NWZAmRkhLb0Y5UWo3cUNDc3J0QThleFFBUVoxZAk9kMXJvcHhNbXpuTHZAFUk9WMWI4Qmd3bHJMdVd1VEJKWlNOZAkctblN6bkpj"
       );
       this.setState({ loggedIn: true });
       this.props.history.push("/home");

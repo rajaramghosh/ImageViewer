@@ -13,6 +13,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
 import Button from "@material-ui/core/Button";
+import ProfilePic from "../../assets/profilePic.png";
 
 const classes = (theme) => ({
   card: {
@@ -81,7 +82,7 @@ class Post extends Component {
             caption: caption,
             hashtags: hashtags,
             username: json.username,
-            profileImageUrl: "profile_pic_dummy.jpg",
+            profileImageUrl: ProfilePic,
             mediaImageUrl: json.media_url,
             postedDate: new Date(json.timestamp),
             isLiked: false,
