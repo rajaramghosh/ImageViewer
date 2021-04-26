@@ -39,6 +39,8 @@ const modalStyle = {
   },
 };
 
+/* Profile Class retrieves the Media and User Details and implements the 
+functions for Likes and Comments and render those */  
 class Profile extends Component {
   constructor(props) {
     super(props);

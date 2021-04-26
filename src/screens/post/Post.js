@@ -38,6 +38,8 @@ const classes = (theme) => ({
   },
 });
 
+/* Post Component retrieves data based on the media id and render those on the Home Page.
+It also implements the necessary functions for likes, comments, etc. */
 class Post extends Component {
   constructor(props) {
     super(props);

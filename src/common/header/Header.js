@@ -37,6 +37,7 @@ const classes = (theme) => ({
   },
 });
 
+/* Header Component */
 class Header extends Component {
   constructor(props) {
     super(props);
@@ -53,17 +54,20 @@ class Header extends Component {
     this.setState({ popoverAnchor: null });
   };
 
+  /* Click to 'My Account' will take the user to Profile Page */
   navigateToMyAccount = () => {
     this.handlePopoverClose();
     this.props.history.push("/profile");
   };
 
+  /* Click to 'Logout will take the user back to the Login Page */
   logoutUser = () => {
     sessionStorage.removeItem("access-token");
     this.handlePopoverClose();
     this.props.history.push("/");
   };
 
+  /* Render the Header Component */
   render() {
     const { classes, location } = this.props;
     const isUserLoggedIn = sessionStorage.getItem("access-token") !== null;

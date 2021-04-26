@@ -26,6 +26,8 @@ const styles = {
   },
 };
 
+/* Login Component validate the Username and Password, and on successful 
+validation it store the access key in the session stotage and route to Home */
 class Login extends Component {
   constructor() {
     super();

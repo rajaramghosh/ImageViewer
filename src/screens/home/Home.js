@@ -6,6 +6,8 @@ import Header from "../../common/header/Header";
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 
+/* Home Component retrives a collection of Media on an Instagram User and
+call the Post Component to render the posts*/
 class Home extends Component {
   constructor(props) {
     super(props);
