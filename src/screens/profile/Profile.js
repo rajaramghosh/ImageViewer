@@ -9,6 +9,7 @@ import Fab from "@material-ui/core/Fab";
 import Edit from "@material-ui/icons/Edit";
 import Modal from "react-modal";
 import FormControl from "@material-ui/core/FormControl";
+import FormHelperText from "@material-ui/core/FormHelperText";
 import InputLabel from "@material-ui/core/InputLabel";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
@@ -40,7 +41,7 @@ const modalStyle = {
 };
 
 /* Profile Class retrieves the Media and User Details and implements the 
-functions for Likes and Comments and render those */  
+functions for Likes and Comments and render those */
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -55,6 +56,7 @@ class Profile extends Component {
       postsData: [],
       isEditNameModalOpen: false,
       editNameInput: "",
+      usernameRequired: "dispNone",
       isPostModalOpen: false,
       modalPost: null,
     };
@@ -73,6 +75,13 @@ class Profile extends Component {
   };
 
   editNameSubmitHandler = (event) => {
+    this.state.editNameInput === ""
+    ? this.setState({ usernameRequired: "dispBlock" })
+    : this.setState({ usernameRequired: "dispNone" });
+
+    if (this.state.editNameInput === "") {
+      return;
+    }
     const { profileData, editNameInput } = this.state;
     profileData.fullName = editNameInput;
     this.setState({
@@ -111,22 +120,21 @@ class Profile extends Component {
       })
       .catch((err) => console.log({ err }));
 
-
-      const userUrl = `https://graph.instagram.com/me?fields=id,username&access_token=${sessionStorage.getItem(
-        "access-token"
-      )}`;
-      fetch(userUrl, {
-        headers: {
-          Accept: "application/json;charset=UTF-8",
-        },
+    const userUrl = `https://graph.instagram.com/me?fields=id,username&access_token=${sessionStorage.getItem(
+      "access-token"
+    )}`;
+    fetch(userUrl, {
+      headers: {
+        Accept: "application/json;charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({
+          userName: json.username,
+        });
       })
-        .then((response) => response.json())
-        .then((json) => {
-          this.setState({
-            userName: json.username
-          });
-        })
-        .catch((err) => console.log({ err }));
+      .catch((err) => console.log({ err }));
   }
 
   render() {
@@ -184,6 +192,9 @@ class Profile extends Component {
                       onChange={this.editNameInputChangeHandler}
                       value={this.state.editNameInput}
                     />
+                    <FormHelperText className={this.state.usernameRequired}>
+                      <span className="red">required</span>
+                    </FormHelperText>
                   </FormControl>
                   <br />
                   <br />
